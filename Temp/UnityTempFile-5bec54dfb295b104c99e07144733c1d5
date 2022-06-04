@@ -314,6 +314,8 @@ Assets\Enemy\Enemy.cs
 Assets\Enemy\EnemyHealth.cs
 Assets\Enemy\EnemyMover.cs
 Assets\Enemy\ObjectPool.cs
+Assets\Pathfinding\GridManager.cs
+Assets\Pathfinding\Node.cs
 Assets\Tiles\CoordinateLabeler.cs
 Assets\Tiles\Waypoint.cs
 Assets\Tower\TargetLocator.cs

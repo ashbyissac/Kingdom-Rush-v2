@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{05622EB6-A554-3E5E-14EC-8F45A17510BA}</ProjectGuid>
+    <ProjectGuid>{459DD722-A200-7D0E-B148-62A79942D15A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,15 +56,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemy\EnemyMover.cs" />
-    <Compile Include="Assets\Tiles\CoordinateLabeler.cs" />
-    <Compile Include="Assets\Tiles\Waypoint.cs" />
-    <Compile Include="Assets\Tower\TargetLocator.cs" />
-    <Compile Include="Assets\Enemy\EnemyHealth.cs" />
-    <Compile Include="Assets\Enemy\ObjectPool.cs" />
     <Compile Include="Assets\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Bank\Bank.cs" />
+    <Compile Include="Assets\Enemy\EnemyMover.cs" />
+    <Compile Include="Assets\Enemy\EnemyHealth.cs" />
+    <Compile Include="Assets\Tower\TargetLocator.cs" />
+    <Compile Include="Assets\Tiles\CoordinateLabeler.cs" />
+    <Compile Include="Assets\Enemy\ObjectPool.cs" />
+    <Compile Include="Assets\Tiles\Waypoint.cs" />
     <Compile Include="Assets\Tower\Tower.cs" />
+    <Compile Include="Assets\Bank\Bank.cs" />
+    <Compile Include="Assets\Pathfinding\GridManager.cs" />
+    <Compile Include="Assets\Pathfinding\Node.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Asset Packs\TextMesh Pro\Shaders\TMPro.cginc" />
