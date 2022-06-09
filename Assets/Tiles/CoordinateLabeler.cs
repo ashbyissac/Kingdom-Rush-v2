@@ -9,17 +9,19 @@ public class CoordinateLabeler : MonoBehaviour
 {
     [SerializeField] Color defaultColor = Color.white;
     [SerializeField] Color blockedColor = Color.gray;
+    [SerializeField] Color exploredColor = Color.yellow;
+    [SerializeField] Color pathColor = new Color(1f, 0.5f, 0);
 
     TextMeshPro labelText;
     Vector2Int coordinates = new Vector2Int();
-    Waypoint waypoint;
+    GridManager gridManager;
 
     void Awake()
     {
         labelText = GetComponent<TextMeshPro>();
-        labelText.enabled = false;
+        labelText.enabled = true;
 
-        waypoint = GetComponentInParent<Waypoint>();
+        gridManager = FindObjectOfType<GridManager>();
         DisplayCoordinates();
     }
 
@@ -45,8 +47,10 @@ public class CoordinateLabeler : MonoBehaviour
 
     void DisplayCoordinates()
     {
-        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
-        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
+        if (gridManager == null) { return; }
+
+        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / gridManager.UnityGridSize);
+        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / gridManager.UnityGridSize);
 
         labelText.text = coordinates.x + "," + coordinates.y;
     }
@@ -58,13 +62,27 @@ public class CoordinateLabeler : MonoBehaviour
 
     void SetLabelColor()
     {
-        if (waypoint.IsPlaceable)
+        if (gridManager == null) { return; }
+
+        Node node = gridManager.GetNode(coordinates);
+
+        if (node == null) { return; }
+
+        if (!node.isWalkable)
         {
-            labelText.color = defaultColor;
+            labelText.color = blockedColor;
+        }
+        else if (node.isPath)
+        {
+            labelText.color = pathColor;
+        }
+        else if (node.isExplored)
+        {
+            labelText.color = exploredColor;
         }
         else
         {
-            labelText.color = blockedColor;
+            labelText.color = defaultColor;
         }
     }
 }
